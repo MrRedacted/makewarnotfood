@@ -1,0 +1,124 @@
+
+:root {
+  font-size: 62.5%
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#head {
+  margin: 2rem auto;
+  padding: 2rem;
+  height: 20rem;
+  width: auto;
+  background-color: grey;
+  display: grid;
+  grid-template-areas: 
+    'start war reset'
+    'comp score user';
+  justify-content: space-around;
+  align-content: space-evenly;
+}
+
+#head > * {
+  margin: auto;
+}
+
+#score-title {
+  grid-area: score;
+  font-size: 2.5rem;
+  text-decoration: underline;
+}
+
+#start-btn {
+  grid-area: start;
+}
+
+.title {
+  padding: .5rem;
+  border: solid black .2rem;
+  grid-area: war;
+}
+
+#reset-btn {
+  grid-area: reset;
+}
+
+.score1 {
+  font-size: 2rem;
+  grid-area: comp;
+}
+
+.score2 {
+  font-size: 2rem;
+  grid-area: user;
+}
+
+.game-space {
+  border-radius: .5rem;
+  padding: 2rem;
+  height: 30rem;
+  width: 72rem;
+  margin: 2rem auto;
+  border: inset rgb(124, 124, 124) .5rem;
+  background-color: rgb(112, 112, 112);
+  display: grid;
+  grid-template-areas: 
+    'deck1 card1 card2 deck2';
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  grid-gap: .2rem;
+}
+
+#comp-deck {
+  grid-area: deck1;
+}
+
+#comp-card {
+  grid-area: card1;
+}
+
+#user-card {
+  grid-area: card2;
+}
+
+#user-deck {
+  grid-area: deck2;
+}
+
+.deck {
+  box-shadow: .4rem .4rem 0 0 black;
+  background-image: url(/res/back.png);
+  border-radius: 1rem;
+  display: grid;
+  height: 22rem;
+  width: calc((2.25/3.5) * 22rem);
+  border: solid black .15rem;
+}
+
+#comp-card {
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 1rem;
+  display: grid;
+  height: 22rem;
+  width: calc((2.25/3.5) * 22rem);
+  border: solid black .15rem;
+}
+
+#user-card {
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 1rem;
+  display: grid;
+  height: 22rem;
+  width: calc((2.25/3.5) * 22rem);
+  border: solid black .15rem;
+}
