@@ -14,17 +14,15 @@
   margin: 2rem auto;
   padding: 2rem;
   height: 20rem;
+  width: 70rem;
   background-color: grey;
   display: grid;
   grid-template-areas: 
     'start war reset'
-    'comp score user';
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  align-items: center;
-  column-gap: 15rem;
-  row-gap: 5rem;
+    '. score .'
+    'comp . user';
+  justify-content: space-evenly;
+  align-content: space-evenly;
 }
 
 #head > * {
