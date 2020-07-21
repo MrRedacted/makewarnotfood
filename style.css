@@ -10,21 +10,26 @@
 }
 
 #head {
+  text-align: center;
   margin: 2rem auto;
   padding: 2rem;
   height: 20rem;
-  width: auto;
   background-color: grey;
   display: grid;
   grid-template-areas: 
     'start war reset'
     'comp score user';
-  justify-content: space-around;
-  align-content: space-evenly;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  column-gap: 15rem;
+  row-gap: 5rem;
 }
 
 #head > * {
   margin: auto;
+  text-align: center;
 }
 
 #score-title {
@@ -91,7 +96,7 @@
 
 .deck {
   box-shadow: .4rem .4rem 0 0 black;
-  background-image: url(/res/back.png);
+  background-image: url(res/back.png);
   border-radius: 1rem;
   display: grid;
   height: 22rem;
@@ -121,4 +126,10 @@
   height: 22rem;
   width: calc((2.25/3.5) * 22rem);
   border: solid black .15rem;
+}
+
+#draw-btn {
+  margin: 1rem auto;
+  display: block;
+  text-align: center;
 }

@@ -85,8 +85,8 @@ function showdown() { //Takes the top card of each player's deck and compares it
   if (checkWinner() === -1) {
     let p1c = player1Deck[0]; //Top card off player 1's deck
     let p2c = player2Deck[0]; //Top card off player 2's deck url('/res/2_of_spades.png')
-    let str1 = "url(/res/" + p1c.Rank + "_of_" + p1c.Suite + ".png)";
-    let str2 = "url(/res/" + p2c.Rank + "_of_" + p2c.Suite + ".png)";
+    let str1 = "url(res/" + p1c.Rank + "_of_" + p1c.Suite + ".png)";
+    let str2 = "url(res/" + p2c.Rank + "_of_" + p2c.Suite + ".png)";
     compCard.style.backgroundImage = str1;
     playerCard.style.backgroundImage = str2;
 
