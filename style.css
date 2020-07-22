@@ -10,9 +10,10 @@
 }
 
 #head {
+  top: 0;
   text-align: center;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 0 auto 2rem;
+  padding: 1rem;
   height: 20rem;
   width: auto;
   background-color: grey;
@@ -43,8 +44,9 @@
 }
 
 .title {
+  font-size: 3rem;
   margin-bottom: 2rem;
-  padding: .5rem;
+  padding: .5rem 2.5rem;
   border: solid black .2rem;
   grid-area: war;
   animation: war 1s linear infinite both paused;
@@ -55,8 +57,16 @@
     background-color: grey;
   }
 
+  10% {
+    background-color: grey;
+  }
+
   50% {
     background-color: red;
+  }
+
+  90% {
+    background-color: grey;
   }
 
   100% {
@@ -144,7 +154,64 @@
 }
 
 #draw-btn {
-  margin: 1rem auto;
+  font-size: 2rem;
+  margin: 0 auto;
   display: block;
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .deck {
+    height: 16rem;
+    width: calc((2.25/3.5) * 16rem);
+  }
+  .comp-card {
+    height: 16rem;
+    width: calc((2.25/3.5) * 16rem);
+  }
+  .user-card {
+    height: 16rem;
+    width: calc((2.25/3.5) * 16rem);
+  }
+  .game-space {
+    height: 23rem;
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-space {
+    height: 21rem;
+    /*grid-template-areas: 
+      'deck1 deck2'
+      'card1 card2';*/
+  }
+  .title {
+    margin-bottom: .5rem;
+    font-size: 2rem;
+  }
+  #score-title {
+    margin-bottom: .5rem;
+    font-size: 1.7rem;
+  }
+  .score1 {
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+  }
+  .score2 {
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+  }
+  .deck {
+    height: 14rem;
+    width: calc((2.25/3.5) * 14rem);
+  }
+  .user-card {
+    height: 14rem;
+    width: calc((2.25/3.5) * 14rem);
+  }
+  .comp-card {
+    height: 14rem;
+    width: calc((2.25/3.5) * 14rem);
+  }
 }
