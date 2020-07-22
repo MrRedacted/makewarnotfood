@@ -11,6 +11,12 @@ var spoils = new Array();
 var compCard = document.querySelector('#comp-card');
 var playerCard = document.querySelector('#user-card');
 var drawBtn = document.querySelector('#draw-btn');
+var compScore = document.querySelector('#comp-score');
+var userScore = document.querySelector('#user-score');
+var title = document.querySelector('.title');
+let p1c;
+let p2c;
+
 
 var player1Deck = new Array();
 var player2Deck = new Array();
@@ -81,15 +87,16 @@ function getValue(d, c) { //Gets value of the rank of a given card in a given de
   return ranks.indexOf(c.Rank);
 }
 
+
+
 function showdown() { //Takes the top card of each player's deck and compares it.
   if (checkWinner() === -1) {
-    let p1c = player1Deck[0]; //Top card off player 1's deck
-    let p2c = player2Deck[0]; //Top card off player 2's deck url('/res/2_of_spades.png')
+    p1c = player1Deck[0]; //Top card off player 1's deck
+    p2c = player2Deck[0]; //Top card off player 2's deck url('/res/2_of_spades.png')
     let str1 = "url(res/" + p1c.Rank + "_of_" + p1c.Suite + ".png)";
     let str2 = "url(res/" + p2c.Rank + "_of_" + p2c.Suite + ".png)";
     compCard.style.backgroundImage = str1;
     playerCard.style.backgroundImage = str2;
-
     console.log("Player 1's draw: " + getValue(player1Deck, p1c));
     console.log("Player 2's draw: " + getValue(player2Deck, p2c));
     player1Deck.shift();
@@ -110,6 +117,8 @@ function showdown() { //Takes the top card of each player's deck and compares it
         spoils.forEach(card => player1Deck.push(card));
         spoils = [];
       }   
+      compScore.innerHTML = ' ' + player1Deck.length;
+      userScore.innerHTML = ' ' + player2Deck.length;
       console.log(player1Deck.length);
       console.log(player2Deck.length);
     }
@@ -122,23 +131,14 @@ function showdown() { //Takes the top card of each player's deck and compares it
         spoils.forEach(card => player2Deck.push(card));
         spoils = [];
       }
+      compScore.innerHTML = ' ' + player1Deck.length;
+      userScore.innerHTML = ' ' + player2Deck.length;
       console.log(player1Deck.length);
       console.log(player2Deck.length);
       }
     else if (getValue(player1Deck, p1c) === getValue(player2Deck, p2c))   {
-      console.log("WAR");
-    //Adds the top 2 cards of each players deck to the spoils array.
-      let p1s1 = player1Deck[0];
-      let p1s2 = player1Deck[1];
-      let p2s1 = player2Deck[0];
-      let p2s2 = player2Deck[1];
-      spoils.push(p1c, p2c, p1s1, p1s2, p2s1, p2s2);
-      player1Deck.shift();
-      player1Deck.shift();
-      player2Deck.shift();
-      player2Deck.shift();
-      //Runs through showdown again, this time with the new cards added to the spoils array.
-      showdown();
+      title.style.animationPlayState = 'running';
+      setTimeout(war, 3000);
     } else {
       console.log("UHHHH");
     }
@@ -154,5 +154,23 @@ function checkWinner() {
   }
   return -1;
 }
-drawBtn.addEventListener("click", () => showdown());
+
+function war() {
+  console.log("WAR");
+  //Adds the top 2 cards of each players deck to the spoils array.
+  let p1s1 = player1Deck[0];
+  let p1s2 = player1Deck[1];
+  let p2s1 = player2Deck[0];
+  let p2s2 = player2Deck[1];
+  spoils.push(p1c, p2c, p1s1, p1s2, p2s1, p2s2);
+  player1Deck.shift();
+  player1Deck.shift();
+  player2Deck.shift();
+  player2Deck.shift();
+  title.style.animationPlayState = 'paused';
+  //Runs through showdown again, this time with the new cards added to the spoils array.
+  showdown();
+}
+
+drawBtn.addEventListener("click", () => {showdown(); compCard.classList.add('comp-card'); playerCard.classList.add('user-card')});
 });

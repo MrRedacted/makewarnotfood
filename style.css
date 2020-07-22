@@ -14,7 +14,7 @@
   margin: 2rem auto;
   padding: 2rem;
   height: 20rem;
-  width: 70rem;
+  width: auto;
   background-color: grey;
   display: grid;
   grid-template-areas: 
@@ -47,6 +47,21 @@
   padding: .5rem;
   border: solid black .2rem;
   grid-area: war;
+  animation: war 1s linear infinite both paused;
+}
+
+@keyframes war {
+  0% {
+    background-color: grey;
+  }
+
+  50% {
+    background-color: red;
+  }
+
+  100% {
+    background-color: grey;
+  }
 }
 
 #reset-btn {
@@ -104,7 +119,7 @@
   border: solid black .15rem;
 }
 
-#comp-card {
+.comp-card {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -116,7 +131,7 @@
   border: solid black .15rem;
 }
 
-#user-card {
+.user-card {
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
